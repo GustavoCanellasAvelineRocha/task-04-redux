@@ -1,7 +1,7 @@
 <h1 align="center"> 🎬 Filmux </h1>
 
 <p align="center">
-  Este projeto foi criado para realizar a task 02 de redux.
+  Este projeto foi criado para realizar a task 04 de redux.
 </p>
 
 <p align="center">
@@ -10,8 +10,7 @@
   <a href="#-sobre-o-projeto">Sobre o Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
 </p>
 
-
-<img width="1409" alt="Imagem site Filmux" src="https://github.com/GustavoCanellasAvelineRocha/task-02-redux/assets/125305894/9dc84c80-41fb-49a7-a8c5-47581a27dde8">
+![image](https://github.com/GustavoCanellasAvelineRocha/task-04-redux/assets/125305894/f20aca18-8fe9-4ead-9232-3743931a3e86)
 
 
 ## 🚀 Tecnologias
@@ -33,22 +32,10 @@ Passo a passo:
 
 ## 💻 Sobre o Projeto
 
-Este projeto foi criado para realizar a Task 02 de Redux. Para isso, criei uma locadora fictícia chamada Filmux (filme + redux), onde você pode tanto adicionar os filmes ao carrinho quanto avaliá-los e realizar filtros de busca com Redux.
-
-- Conexão com a API The Movie DB.
-
-- Página de detalhes do filme.
-
-- Melhorias na feat de avaliações de filmes dos usuários.
-
-- Skeletons nos Loadings.
-
-- Snackbar de Feedback.
-
-- Mais slices no redux.
-
-- Entre outras melhorias gerais do código!
+Este projeto foi criado para realizar a Task 04 de Redux. Para isso, adicionei a lógica de login e registro de usuário por meio da API Reqres. Além disso, criei os reducers Redux para controlar os tokens que a API retornava, permitindo validar os cabeçalhos de maneira mais eficiente para o usuário.
 
 Vercel do projeto: https://task-02-redux.vercel.app/
 
-API utilizada: https://www.themoviedb.org/
+API utilizada para os filmes: https://www.themoviedb.org/
+
+API utilizada para login e registro: https://reqres.in/
