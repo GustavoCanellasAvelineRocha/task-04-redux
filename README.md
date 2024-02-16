@@ -32,7 +32,7 @@ Passo a passo:
 
 ## 💻 Sobre o Projeto
 
-Este projeto foi criado para realizar a Task 04 de Redux. Para isso, adicionei a lógica de login e registro de usuário por meio da API Reqres. Além disso, criei os reducers Redux para controlar os tokens que a API retornava, permitindo validar os cabeçalhos de maneira mais eficiente para o usuário.
+Este projeto foi criado para realizar a Task 04 de Redux. Para isso, adicionei a lógica de login e registro de usuário por meio da API Reqres. Além disso, criei os reducers Redux para controlar os tokens que a API retornava, permitindo validar os cabeçalhos de maneira mais eficiente para o usuário. Por último, também criei reducers Redux para controlar os snackbars e proporcionar ainda mais interação com o usuário.
 
 Vercel do projeto: https://task-02-redux.vercel.app/
 
