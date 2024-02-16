@@ -4,10 +4,10 @@ import style from "./Register.module.scss";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { TextField } from "@mui/material";
+import { Alert, Snackbar, TextField } from "@mui/material";
 import { LoadingButton } from "@mui/lab";
 import { CustomError, LoginData } from "../../utils/interfaces";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useRegisterMutation } from "../../services/registerApi";
 
 const schema = yup.object().shape({
@@ -19,6 +19,8 @@ export default function Register() {
   const navigate = useNavigate();
   const [registerApi, { isLoading, isSuccess, isError, error }] =
     useRegisterMutation();
+  const [errorSnackbarOpen, seterrorSnackbarOpen] = useState(false);
+  const [msgError, setMsgError] = useState("");
 
   const {
     register,
@@ -42,10 +44,19 @@ export default function Register() {
     }
     if (isError) {
       const customError = error as CustomError;
-      alert("Erro! " + customError.data.error);
+      setMsgError("Erro! " + customError.data.error);
+      handleClickerror();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [error, isError, isSuccess, navigate]);
+
+  const handleClickerror = () => {
+    seterrorSnackbarOpen(true);
+  };
+
+  const handleCloseerrorSnackbar = () => {
+    seterrorSnackbarOpen(false);
+  };
 
   return (
     <>
@@ -95,7 +106,7 @@ export default function Register() {
 
             <div className={style.formLinks}>
               <p className={style.forgetPassword}>
-                Ja possui uma conta?{" "}
+                Já possui uma conta?{" "}
                 <RouterLink to={"/"} className={style.links}>
                   Entrar com cadastro
                 </RouterLink>
@@ -103,6 +114,20 @@ export default function Register() {
             </div>
           </form>
         </div>
+        <Snackbar
+          open={errorSnackbarOpen}
+          autoHideDuration={3000}
+          onClose={handleCloseerrorSnackbar}
+        >
+          <Alert
+            onClose={handleCloseerrorSnackbar}
+            severity="error"
+            variant="filled"
+            sx={{ width: "100%" }}
+          >
+            {msgError}
+          </Alert>
+        </Snackbar>
       </section>
     </>
   );

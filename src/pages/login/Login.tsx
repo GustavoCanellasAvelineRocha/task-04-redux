@@ -4,14 +4,15 @@ import style from "./Login.module.scss";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { TextField } from "@mui/material";
+import { Alert, Snackbar, TextField } from "@mui/material";
 import { LoadingButton } from "@mui/lab";
 import { CustomError, LoginData } from "../../utils/interfaces";
 import { useLoginMutation } from "../../services/loginApi";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useAppDispatch } from "../../hooks/hooks";
 import { showOptions } from "../../slices/NavBarSlice";
 import { setToken } from "../../slices/TokenSlice";
+import { changeMessage, showSnackbarSuccess } from "../../slices/snackBarSlice";
 
 const schema = yup.object().shape({
   email: yup.string().required("Obrigatório").email("Email inválido."),
@@ -23,6 +24,8 @@ export default function Login() {
   const [loginUser, { data, isLoading, isSuccess, isError, error }] =
     useLoginMutation();
   const dispatch = useAppDispatch();
+  const [errorSnackbarOpen, seterrorSnackbarOpen] = useState(false);
+  const [msgError, setMsgError] = useState("");
 
   const {
     register,
@@ -44,14 +47,25 @@ export default function Login() {
     if (isSuccess) {
       dispatch(setToken(data.token));
       dispatch(showOptions());
+      dispatch(changeMessage("Bem vindo!"));
+      dispatch(showSnackbarSuccess());
       navigate("/buy");
     }
     if (isError) {
       const customError = error as CustomError;
-      alert("Erro! " + customError.data.error);
+      setMsgError("Erro! " + customError.data.error);
+      handleClickerror();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [error, isError, isSuccess, navigate]);
+
+  const handleClickerror = () => {
+    seterrorSnackbarOpen(true);
+  };
+
+  const handleCloseerrorSnackbar = () => {
+    seterrorSnackbarOpen(false);
+  };
 
   return (
     <>
@@ -109,6 +123,20 @@ export default function Login() {
             </div>
           </form>
         </div>
+        <Snackbar
+          open={errorSnackbarOpen}
+          autoHideDuration={3000}
+          onClose={handleCloseerrorSnackbar}
+        >
+          <Alert
+            onClose={handleCloseerrorSnackbar}
+            severity="error"
+            variant="filled"
+            sx={{ width: "100%" }}
+          >
+            {msgError}
+          </Alert>
+        </Snackbar>
       </section>
     </>
   );

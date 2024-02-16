@@ -4,6 +4,7 @@ import cartReducer from "../slices/CartSlice";
 import rateReducer from "../slices/RateSlice";
 import navBarReducer from "../slices/NavBarSlice";
 import tokenReducer from "../slices/TokenSlice";
+import snackBarReducer from "../slices/snackBarSlice";
 import { loginApi } from "../services/loginApi";
 import { registerApi } from "../services/registerApi";
 
@@ -14,6 +15,7 @@ export const store = configureStore({
     rate: rateReducer,
     navBar: navBarReducer,
     token: tokenReducer,
+    snackBar: snackBarReducer,
     [loginApi.reducerPath]: loginApi.reducer,
     [registerApi.reducerPath]: registerApi.reducer,
   },
