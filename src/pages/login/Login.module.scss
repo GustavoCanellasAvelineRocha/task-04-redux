@@ -1,0 +1,115 @@
+.loginContainer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.formContainer {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-block: 15px;
+  width: 600px;
+
+  .field {
+    width: 100%;
+    p {
+      color: rgb(210, 0, 0);
+      margin-top: 5px;
+    }
+  }
+}
+
+.title {
+  color: var(--primary);
+  font-size: 3.4rem;
+  margin-bottom: 5px;
+}
+
+.subtitle {
+  font-size: 2rem;
+  font-weight: 500;
+  margin-bottom: 30px;
+}
+
+.input {
+  width: 100%;
+}
+
+.forgotPasswordLink {
+  color: var(--secondary);
+  font-size: 1rem;
+  text-decoration: none;
+  width: 100%;
+  text-align: end;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.formLinks {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  .links {
+    color: var(--secondary);
+    font-size: 1.05rem;
+    text-decoration: none;
+    font-weight: 500;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .forgetPassword {
+    font-size: 1.05rem;
+    margin-top: 10px;
+  }
+}
+
+.buttonLogin {
+  background-color: var(--accent) !important;
+  width: 60%;
+  height: 40px;
+  margin-top: 10px !important;
+  border-radius: 50px !important;
+
+  &[tabindex="-1"] {
+    background-color: #dcdcdc !important;
+  }
+  &:hover {
+    opacity: 90%;
+  }
+}
+
+@media (max-width: 768px) {
+  .form {
+    width: 100%;
+  }
+
+  .forgetPassword,
+  .links {
+    font-size: 1rem;
+  }
+
+  .input {
+    width: 100%;
+  }
+
+  .formContainer {
+    padding: 2rem;
+  }
+}

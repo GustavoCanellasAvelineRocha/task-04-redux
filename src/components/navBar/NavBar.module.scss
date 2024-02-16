@@ -1,0 +1,68 @@
+.header {
+  background-color: var(--primary);
+  max-width: 100%;
+  .navBar {
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    color: var(--bg-color);
+    align-items: center;
+    max-width: 1440px;
+    padding: 0.25rem 2rem;
+  }
+
+  .containerTile {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .links {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .logoutButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    background-color: var(--primary);
+    color: var(--bg-color);
+    font-size: 1rem;
+    border: 2px var(--bg-color) solid;
+    padding: 2px 4px;
+    border-radius: 8px;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 90%;
+    }
+  }
+
+  .linkFilmex {
+    color: inherit;
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: 700;
+  }
+
+  .linkCart {
+    display: flex;
+    align-items: center;
+    color: inherit;
+    text-decoration: none;
+    font-size: 1rem;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+@media (max-width: 360px) {
+  .icon {
+    display: none;
+  }
+}
